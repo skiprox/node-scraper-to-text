@@ -9,14 +9,18 @@
   },
   "scripts": {
     "docs": "jsdoc index.js -p -c .jsdoc.json -d docs/",
-    "build": "mkdir -p tmp/ && npm run js:dev",
+    "build": "node command-line-test.js",
     "test": "phantomjs ./node_modules/mocha-phantomjs-core/mocha-phantomjs-core.js test/spec/test.js spec '{\"useColors\":true}'",
     "lint": "xo ./index.js || true"
   },
-  "dependencies": {},
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "lodash": "^4.17.4",
+    "request": "^2.81.0"
+  },
   "devDependencies": {
     "chai": "^3.4.1",
-    "mocha": "^2.3.4",
+    "mocha": "^2.5.3",
     "mocha-phantomjs-core": "^2.1.1"
   },
   "optionalDependencies": {

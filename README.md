@@ -1,4 +1,4 @@
-# node-scraper-to-text
+# Node Scraper to Text
 > Scrape a bunch of URLs for tags, get an array of strings back
 
 
