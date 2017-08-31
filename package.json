@@ -1,0 +1,54 @@
+{
+  "name": "node-scraper-to-text",
+  "version": "1.0.0",
+  "description": "Scrape a bunch of URLs for tags, get an array of strings back",
+  "author": "Sean Scanlan <seanmichaelscanlan@gmail.com>",
+  "main": "index.js",
+  "bin": {
+    "nodeScraperToText": "bin/node-scraper-to-text.js"
+  },
+  "scripts": {
+    "docs": "jsdoc index.js -p -c .jsdoc.json -d docs/",
+    "build": "mkdir -p tmp/ && npm run js:dev",
+    "test": "phantomjs ./node_modules/mocha-phantomjs-core/mocha-phantomjs-core.js test/spec/test.js spec '{\"useColors\":true}'",
+    "lint": "xo ./index.js || true"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4",
+    "mocha-phantomjs-core": "^2.1.1"
+  },
+  "optionalDependencies": {
+    "jsdoc": "^3.4.0",
+    "phantomjs-prebuilt": "^2.1.1",
+    "xo": "^0.17.1"
+  },
+  "bugs": {
+    "url": "https://github.com/skiprox/node-scraper-to-text/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skiprox/node-scraper-to-text"
+  },
+  "homepage": "https://github.com/skiprox/node-scraper-to-text",
+  "contributors": [
+    ""
+  ],
+  "xo": {
+    "globals": [
+      "assert",
+      "beforeEach",
+      "describe",
+      "expect",
+      "it",
+      "module",
+      "require"
+    ]
+  },
+  "keywords": [],
+  "engines": {
+    "node": ">=0.10.3"
+  },
+  "license": "MIT"
+}
