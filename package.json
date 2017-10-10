@@ -1,6 +1,6 @@
 {
   "name": "node-scraper-to-text",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Scrape a bunch of URLs for tags, get an array of strings back",
   "author": "Sean Scanlan <seanmichaelscanlan@gmail.com>",
   "main": "index.js",
