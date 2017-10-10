@@ -19,7 +19,7 @@ new index({
 		'h5',
 		'h6'
 	],
-	save: false
+	save: './test.js'
 }).then((data) => {
 	console.log('we are done!!!\n\n', data);
 });

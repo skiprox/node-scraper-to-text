@@ -30,8 +30,11 @@ class NodeScraping {
 		return new Promise((resolve, reject) => {
 			forEachPromise(this.options.urls, this.getUrl.bind(this)).then(() => {
 				this.cleanData();
-				this.writeData();
-				resolve();
+				if (this.options.save) {
+					this.writeData(resolve);
+				} else {
+					resolve();
+				}
 			});
 		});
 	}
@@ -77,8 +80,8 @@ class NodeScraping {
 		this.sentences = _.compact(this.sentences);
 	}
 
-	writeData() {
-		// TODO
+	writeData(resolve) {
+		fs.writeFile(this.options.save, `module.exports = ${JSON.stringify({sentences: this.sentences})}`, resolve);
 	}
 }
 

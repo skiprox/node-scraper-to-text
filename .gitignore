@@ -12,3 +12,4 @@ temp/
 /coverage
 docs/
 tmp/
+test.js
