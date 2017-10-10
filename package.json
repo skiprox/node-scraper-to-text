@@ -8,20 +8,12 @@
     "nodeScraperToText": "bin/node-scraper-to-text.js"
   },
   "scripts": {
-    "docs": "jsdoc index.js -p -c .jsdoc.json -d docs/",
-    "build": "node command-line-test.js",
-    "test": "phantomjs ./node_modules/mocha-phantomjs-core/mocha-phantomjs-core.js test/spec/test.js spec '{\"useColors\":true}'",
-    "lint": "xo ./index.js || true"
+    "build": "node command-line-test.js"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "lodash": "^4.17.4",
     "request": "^2.81.0"
-  },
-  "optionalDependencies": {
-    "jsdoc": "^3.4.0",
-    "phantomjs-prebuilt": "^2.1.1",
-    "xo": "^0.17.1"
   },
   "bugs": {
     "url": "https://github.com/skiprox/node-scraper-to-text/issues"
