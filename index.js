@@ -15,7 +15,11 @@ const arbitrarySentenceLength = 3;
 class NodeScraping {
 	/**
 	 * Constructor Scrapes a list of URLs for a list of tags and returns the text
-	 * @param {object} options - Object instantiation options
+	 * @param {object} [options] Object instantiation options
+	 * @param {Boolean} [options.shouldSplit=false] Should the chunks of text be split by periods
+	 * @param {Array} [options.urls=[list of soylent URLs]] A list of URLs to scrape for text
+	 * @param {Array} [options.tags=['p', 'h1', 'h2', ...etc]] A list of tags to scrape from the URLs
+	 * @param {Boolean | String} [options.save=false] An optional string for where to save the output result. This will save it as a file with the structure `module.exports = {"sentences": [{your scraped text}]}` so you can import it elsewhere, if that's what you want to do
 	 * @return {array}
 	 */
 	constructor(options) {
@@ -26,6 +30,10 @@ class NodeScraping {
 		});
 	}
 
+	/**
+	 * Runs the scraper
+	 * @return {promise}
+	 */
 	run() {
 		return new Promise((resolve, reject) => {
 			forEachPromise(this.options.urls, this.getUrl.bind(this)).then(() => {
@@ -64,6 +72,12 @@ class NodeScraping {
 		});
 	}
 
+	/**
+	 * Cleans the data, gets rid of excess whitespace,
+	 * deletes sentences if they're just whitespace,
+	 * or if they fall under the arbitrary 3 character minimum
+	 * @return {promise}
+	 */
 	cleanData() {
 		this.sentences.forEach((sentence, index) => {
 			// Trim the sentence
@@ -80,6 +94,11 @@ class NodeScraping {
 		this.sentences = _.compact(this.sentences);
 	}
 
+	/**
+	 * Write the data to a file, if you want to
+	 * @param  {promise} [resolve] The resolution of the promise of the `run` function
+	 * @return {promise}
+	 */
 	writeData(resolve) {
 		fs.writeFile(this.options.save, `module.exports = ${JSON.stringify({sentences: this.sentences})}`, resolve);
 	}
